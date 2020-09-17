@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="注：对Kong的操作可以使用KongA完成。我们这边使用命令方式完成。  部署参考 《kong快速部署》  测试whoami服务123456789101112# 12线程、40连接、持续30秒操作wrk -t12 -c400 -d30s http:&#x2F;&#x2F;172.20.99.13:8000 -H &quot;Host: whoami.com&quot;# 测试结果Running 30s test @ http:&#x2F;&#x2F;172">
+  <meta name="description" content="下载代码1git clone https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;dubbo-samples  运行helloworld 服务端123456export ARCH&#x3D;mac &amp;&amp; export ENV&#x3D;devcd helloworld&#x2F;dubbo&#x2F;go-serversh .&#x2F;assembly&#x2F;$ARCH&#x2F;$ENV.sh# 我配置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(三):Kong插件使用之限流">
-<meta property="og:url" content="http://yoursite.com/2020/08/27/kong_2/index.html">
+<meta property="og:title" content="dubbo-go使用">
+<meta property="og:url" content="http://yoursite.com/2020/09/16/dubbo_1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="注：对Kong的操作可以使用KongA完成。我们这边使用命令方式完成。  部署参考 《kong快速部署》  测试whoami服务123456789101112# 12线程、40连接、持续30秒操作wrk -t12 -c400 -d30s http:&#x2F;&#x2F;172.20.99.13:8000 -H &quot;Host: whoami.com&quot;# 测试结果Running 30s test @ http:&#x2F;&#x2F;172">
+<meta property="og:description" content="下载代码1git clone https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;dubbo-samples  运行helloworld 服务端123456export ARCH&#x3D;mac &amp;&amp; export ENV&#x3D;devcd helloworld&#x2F;dubbo&#x2F;go-serversh .&#x2F;assembly&#x2F;$ARCH&#x2F;$ENV.sh# 我配置">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-27T08:32:30.000Z">
-<meta property="article:modified_time" content="2020-08-31T05:57:38.786Z">
+<meta property="article:published_time" content="2020-09-16T11:10:00.000Z">
+<meta property="article:modified_time" content="2020-09-17T08:59:11.842Z">
 <meta property="article:author" content="Frank">
 <meta property="article:tag" content="微服务">
-<meta property="article:tag" content="Kong">
+<meta property="article:tag" content="dubbo">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/08/27/kong_2/">
+<link rel="canonical" href="http://yoursite.com/2020/09/16/dubbo_1/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>(三):Kong插件使用之限流 | Hexo</title>
+  <title>dubbo-go使用 | Hexo</title>
   
 
 
@@ -214,7 +214,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试whoami服务"><span class="nav-number">1.</span> <span class="nav-text">测试whoami服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动插件"><span class="nav-number">2.</span> <span class="nav-text">启动插件</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载代码"><span class="nav-number">1.</span> <span class="nav-text">下载代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行helloworld"><span class="nav-number">2.</span> <span class="nav-text">运行helloworld</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -296,7 +296,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/27/kong_2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/dubbo_1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/1.jpg">
@@ -309,7 +309,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          (三):Kong插件使用之限流
+          dubbo-go使用
         </h1>
 
         <div class="post-meta">
@@ -319,14 +319,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-08-27 16:32:30" itemprop="dateCreated datePublished" datetime="2020-08-27T16:32:30+08:00">2020-08-27</time>
+              <time title="创建时间：2020-09-16 19:10:00" itemprop="dateCreated datePublished" datetime="2020-09-16T19:10:00+08:00">2020-09-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-31 13:57:38" itemprop="dateModified" datetime="2020-08-31T13:57:38+08:00">2020-08-31</time>
+                <time title="修改时间：2020-09-17 16:59:11" itemprop="dateModified" datetime="2020-09-17T16:59:11+08:00">2020-09-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -334,7 +334,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kong%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">Kong快速入门</span></a>
+                  <a href="/categories/dubbo-go/" itemprop="url" rel="index"><span itemprop="name">dubbo-go</span></a>
                 </span>
             </span>
 
@@ -356,16 +356,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>注：对Kong的操作可以使用KongA完成。我们这边使用命令方式完成。</p>
-<ul>
-<li>部署参考 <a href="https://feixiao.github.io/2020/08/27/kong/" target="_blank" rel="noopener">《kong快速部署》</a></li>
-</ul>
-<h3 id="测试whoami服务"><a href="#测试whoami服务" class="headerlink" title="测试whoami服务"></a>测试whoami服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 12线程、40连接、持续30秒操作</span></span><br><span class="line">wrk -t12 -c400 -d30s http://172.20.99.13:8000 -H "Host: whoami.com"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试结果</span></span><br><span class="line">Running 30s test @ http://172.20.99.13:8000</span><br><span class="line">  12 threads and 400 connections</span><br><span class="line">  Thread Stats   Avg      Stdev     Max   +/- Stdev</span><br><span class="line">    Latency    97.10ms  159.90ms   1.62s    89.50%</span><br><span class="line">    Req/Sec   693.90    372.81     1.39k    56.53%</span><br><span class="line">  247571 requests in 30.09s, 54.04MB read</span><br><span class="line">Requests/sec:   8227.49</span><br><span class="line">Transfer/sec:      1.80MB</span><br></pre></td></tr></table></figure>
+        <h4 id="下载代码"><a href="#下载代码" class="headerlink" title="下载代码"></a>下载代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;dubbo-samples</span><br></pre></td></tr></table></figure>
 
-<h3 id="启动插件"><a href="#启动插件" class="headerlink" title="启动插件"></a>启动插件</h3><ul>
-<li>在服务(Service)上启用插件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST http://172.20.99.13:8001/services/whoami/plugins \</span><br><span class="line">   --data "name=rate-limiting"  \</span><br><span class="line">   --data "config.second=500" \</span><br><span class="line">   --data "config.hour=10000"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证效果</span></span><br><span class="line">wrk -t12 -c400 -d30s http://172.20.99.13:8000 -H "Host: whoami.com"</span><br><span class="line"><span class="meta">#</span><span class="bash">测试结果</span></span><br><span class="line">Running 30s test @ http://172.20.99.13:8000</span><br><span class="line">  12 threads and 400 connections</span><br><span class="line">  Thread Stats   Avg      Stdev     Max   +/- Stdev</span><br><span class="line">    Latency   461.99ms  482.43ms   1.99s    82.31%</span><br><span class="line">    Req/Sec    47.66     31.52   300.00     79.57%</span><br><span class="line">  16962 requests in 30.10s, 4.63MB read</span><br><span class="line">  Socket errors: connect 0, read 0, write 0, timeout 1219</span><br><span class="line">Requests/sec:    563.47</span><br><span class="line">Transfer/sec:    157.58K</span><br></pre></td></tr></table></figure></li>
-<li>在路由(Route)上启动插件</li>
-<li>在消费者(Consumer)上启动插件</li>
+<h4 id="运行helloworld"><a href="#运行helloworld" class="headerlink" title="运行helloworld"></a>运行helloworld</h4><ul>
+<li>服务端<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-server</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_server-2.6.0-20200917-1433-dev/</span><br></pre></td></tr></table></figure></li>
+<li>客户端<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-client</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_client-2.6.0-20200917-1440-dev</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/" target="_blank" rel="noopener">《dubbo-go官方文档》</a></li>
+<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/docs/user/quick-start.html" target="_blank" rel="noopener">《dubbo-go快速开始》</a></li>
 </ul>
 
     </div>
@@ -402,7 +404,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/08/27/kong_2/" title="(三):Kong插件使用之限流">http://yoursite.com/2020/08/27/kong_2/</a>
+    <a href="http://yoursite.com/2020/09/16/dubbo_1/" title="dubbo-go使用">http://yoursite.com/2020/09/16/dubbo_1/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -414,7 +416,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag"># 微服务</a>
-              <a href="/tags/Kong/" rel="tag"># Kong</a>
+              <a href="/tags/dubbo/" rel="tag"># dubbo</a>
           </div>
 
         
@@ -423,13 +425,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/27/kong/" rel="prev" title="(一):Kong快速部署">
-      <i class="fa fa-chevron-left"></i> (一):Kong快速部署
+    <a href="/2020/09/16/dubbo/" rel="prev" title="dubbo安装部署">
+      <i class="fa fa-chevron-left"></i> dubbo安装部署
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/27/kong_4/" rel="next" title="(三):Kong插件使用之BasicAuth">
-      (三):Kong插件使用之BasicAuth <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
