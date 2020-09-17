@@ -1,6 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>dubbo安装部署</title>
+    <url>/2020/09/16/dubbo/</url>
+    <content><![CDATA[<h2 id="Dubbo-快速入门"><a href="#Dubbo-快速入门" class="headerlink" title="Dubbo 快速入门"></a>Dubbo 快速入门</h2><p>Apache Dubbo™ 是一款高性能Java RPC框架。支持的客户端有Java、Node.js、Python、PHP、Go和Erlang。<a href="http://dubbo.apache.org/zh-cn/community/index.html" target="_blank" rel="noopener">生态系统</a></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
+<li>准备docker-compose.yaml文件, <a href="https://github.com/feixiao/service/tree/master/dubbo" target="_blank" rel="noopener">文件更新地址</a><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">zookeeper:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">zookeeper</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">2181</span><span class="string">:2181</span></span><br><span class="line">  <span class="attr">admin:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">chenchuxin/dubbo-admin</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">zookeeper</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8080</span><span class="string">:8080</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.registry.address=zookeeper://zookeeper:2181</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.admin.root.password=root</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.admin.guest.password=guest</span></span><br></pre></td></tr></table></figure></li>
+<li>启动和关闭<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose up -d </span><br><span class="line">docker-compose download</span><br></pre></td></tr></table></figure></li>
+<li>浏览器访问<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://172.20.99.13:8080/</span><br><span class="line">用户名密码root:root</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="http://dubbo.apache.org/zh-cn/" target="_blank" rel="noopener">《Dubbo官网地址》</a></li>
+<li><a href="http://dubbo.apache.org/zh-cn/docs/user/quick-start.html" target="_blank" rel="noopener">《quick-start》</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>dubbo</category>
+        <category>dubbo-go</category>
+      </categories>
+      <tags>
+        <tag>微服务</tag>
+        <tag>dubbo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>(一):Juno快速部署</title>
+    <url>/2020/08/31/juno/</url>
+    <content><![CDATA[<h3 id="构建并运行Juno-0-3-0"><a href="#构建并运行Juno-0-3-0" class="headerlink" title="构建并运行Juno 0.3.0"></a>构建并运行Juno 0.3.0</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/douyu/juno-install.git</span><br><span class="line">cd juno-install</span><br><span class="line">docker-compose up --build</span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化并mock数据"><a href="#初始化并mock数据" class="headerlink" title="初始化并mock数据"></a>初始化并mock数据</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it  juno-install_juno-admin_1 docker_juno_init.sh</span><br><span class="line">docker exec -it  juno-install_juno-admin_1 docker_juno_mock.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="访问管理页面"><a href="#访问管理页面" class="headerlink" title="访问管理页面"></a>访问管理页面</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://172.20.99.13:50002/workspace</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="安装juno-agent"><a href="#安装juno-agent" class="headerlink" title="安装juno-agent"></a>安装juno-agent</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone http:&#x2F;&#x2F;sgithub.com&#x2F;douyu&#x2F;juno-agent.git</span><br><span class="line">cd juno-agent&#x2F;cmd&#x2F;juno-agent &amp;&amp; go build </span><br><span class="line">cp ..&#x2F;..&#x2F;config&#x2F;config.toml config.toml</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 启动</span><br><span class="line">export JUNO_HOST&#x3D;&quot;agent01&quot;</span><br><span class="line">export REGION_CODE&#x3D;&quot;1&quot;</span><br><span class="line">export REGION_NAME&#x3D;&quot;杭州&quot;</span><br><span class="line">export ZONE_CODE&#x3D;&quot;1&quot;</span><br><span class="line">export ZONE_NAME&#x3D;&quot;浙江&quot;</span><br><span class="line">export Env&#x3D;&quot;dev&quot; </span><br><span class="line"></span><br><span class="line">注: plugin.report.addr 填写juno的地址; 同时修改etcd地址为本地</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.&#x2F;juno-agent --config&#x3D;config.toml</span><br></pre></td></tr></table></figure>
+
+<h4 id="停止运行"><a href="#停止运行" class="headerlink" title="停止运行"></a>停止运行</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose down</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="http://jupiter.douyu.com/juno/1.4install_docker_compose.html" target="_blank" rel="noopener">《juno部署》</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Jupiter快速入门</category>
+      </categories>
+      <tags>
+        <tag>微服务</tag>
+        <tag>jupiter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jupiter快速入门</title>
+    <url>/2020/08/31/jupiter/</url>
+    <content><![CDATA[<h3 id="安装脚手架"><a href="#安装脚手架" class="headerlink" title="安装脚手架"></a>安装脚手架</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">go get -u github.com&#x2F;douyu&#x2F;jupiter&#x2F;tools&#x2F;jupiter</span><br></pre></td></tr></table></figure>
+
+<h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jupiter new apiserver</span><br></pre></td></tr></table></figure>
+
+<h4 id="xia"><a href="#xia" class="headerlink" title="xia"></a>xia</h4>]]></content>
+      <categories>
+        <category>Jupiter快速入门</category>
+      </categories>
+      <tags>
+        <tag>微服务</tag>
+        <tag>jupiter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>(一):Kong快速部署</title>
+    <url>/2020/08/27/kong/</url>
+    <content><![CDATA[<h3 id="编写yaml文件"><a href="#编写yaml文件" class="headerlink" title="编写yaml文件"></a>编写yaml文件</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.7"</span></span><br><span class="line"><span class="attr">services:</span> </span><br><span class="line">  <span class="attr">kong:</span></span><br><span class="line">    <span class="comment"># 镜像版本，目前最新</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">kong:2.1.3-centos</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="comment"># 数据持久化方式，使用postgres数据库</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_DATABASE=postgres"</span></span><br><span class="line">    <span class="comment"># 数据库容器名称,Kong连接数据时使用些名称</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PG_HOST=kong-database"</span></span><br><span class="line">    <span class="comment"># 数据库名称</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_CASSANDRA_CONTACT_POINTS=kong-database"</span></span><br><span class="line">    <span class="comment"># 日志记录目录</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PROXY_ACCESS_LOG=/dev/stdout"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_ACCESS_LOG=/dev/stdout"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PROXY_ERROR_LOG=/dev/stderr"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_ERROR_LOG=/dev/stderr"</span></span><br><span class="line">    <span class="comment"># 暴露的端口</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl"</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8000</span><span class="string">:8000</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8443</span><span class="string">:8443</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8001</span><span class="string">:8001</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8444</span><span class="string">:8444</span></span><br><span class="line">    <span class="comment"># 使用docker网络</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="comment"># 依赖数据库服务</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-database</span></span><br><span class="line"><span class="comment"># kong 管理界面</span></span><br><span class="line">  <span class="attr">konga:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">pantsel/konga</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"TOKEN_SECRET=localhost"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"NODE_ENV=production"</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">1337</span><span class="string">:1337</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-database</span></span><br><span class="line"><span class="comment"># 数据库服务</span></span><br><span class="line">  <span class="attr">kong-database:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:9.6</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"5432:5432"</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="comment"># 访问数据库的用户</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_HOST_AUTH_METHOD=trust</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">    <span class="comment"># 同步时间</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/etc/localtime:/etc/localtime:ro</span></span><br><span class="line">    <span class="comment"># 数据库持久化目录</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/data/data/postgresql:/var/lib/postgresql/data</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">kong-net:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用docker-compose启动"><a href="#使用docker-compose启动" class="headerlink" title="使用docker-compose启动"></a>使用docker-compose启动</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker network create kong-net</span><br><span class="line"></span><br><span class="line">docker-compose up</span><br><span class="line">docker-compose up -d  # 后台启动</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库准备"><a href="#数据库准备" class="headerlink" title="数据库准备"></a>数据库准备</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">     --network=kong-net \</span><br><span class="line">     -e "KONG_DATABASE=postgres" \</span><br><span class="line">     -e "KONG_PG_HOST=kong-database" \</span><br><span class="line">     -e "KONG_PG_USER=kong" \</span><br><span class="line">     -e "KONG_PG_PASSWORD=kong" \</span><br><span class="line">     -e "KONG_CASSANDRA_CONTACT_POINTS=kong-database" \</span><br><span class="line">     kong:2.1.3-centos kong migrations bootstrap</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="访问konga"><a href="#访问konga" class="headerlink" title="访问konga"></a>访问konga</h3><p><a href="http://172.20.99.13:1337/#!/dashboard" target="_blank" rel="noopener">http://172.20.99.13:1337/#!/dashboard</a></p>
+<h3 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h3><ul>
+<li><a href="https://github.com/feixiao/service/tree/master/kong" target="_blank" rel="noopener">kong</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Kong快速入门</category>
+      </categories>
+      <tags>
+        <tag>微服务</tag>
+        <tag>Kong</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>(二):Kong快速入门</title>
     <url>/2020/08/27/kong_1/</url>
     <content><![CDATA[<p>注：对Kong的操作可以使用KongA完成。我们这边使用命令方式完成。</p>
@@ -74,21 +167,13 @@
       </tags>
   </entry>
   <entry>
-    <title>(一):Kong快速部署</title>
-    <url>/2020/08/27/kong/</url>
-    <content><![CDATA[<h3 id="编写yaml文件"><a href="#编写yaml文件" class="headerlink" title="编写yaml文件"></a>编写yaml文件</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.7"</span></span><br><span class="line"><span class="attr">services:</span> </span><br><span class="line">  <span class="attr">kong:</span></span><br><span class="line">    <span class="comment"># 镜像版本，目前最新</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">kong:2.1.3-centos</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="comment"># 数据持久化方式，使用postgres数据库</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_DATABASE=postgres"</span></span><br><span class="line">    <span class="comment"># 数据库容器名称,Kong连接数据时使用些名称</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PG_HOST=kong-database"</span></span><br><span class="line">    <span class="comment"># 数据库名称</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_CASSANDRA_CONTACT_POINTS=kong-database"</span></span><br><span class="line">    <span class="comment"># 日志记录目录</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PROXY_ACCESS_LOG=/dev/stdout"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_ACCESS_LOG=/dev/stdout"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PROXY_ERROR_LOG=/dev/stderr"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_ERROR_LOG=/dev/stderr"</span></span><br><span class="line">    <span class="comment"># 暴露的端口</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl"</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8000</span><span class="string">:8000</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8443</span><span class="string">:8443</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8001</span><span class="string">:8001</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8444</span><span class="string">:8444</span></span><br><span class="line">    <span class="comment"># 使用docker网络</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="comment"># 依赖数据库服务</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-database</span></span><br><span class="line"><span class="comment"># kong 管理界面</span></span><br><span class="line">  <span class="attr">konga:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">pantsel/konga</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"TOKEN_SECRET=localhost"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"NODE_ENV=production"</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">1337</span><span class="string">:1337</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-database</span></span><br><span class="line"><span class="comment"># 数据库服务</span></span><br><span class="line">  <span class="attr">kong-database:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:9.6</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"5432:5432"</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="comment"># 访问数据库的用户</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_HOST_AUTH_METHOD=trust</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">    <span class="comment"># 同步时间</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/etc/localtime:/etc/localtime:ro</span></span><br><span class="line">    <span class="comment"># 数据库持久化目录</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/data/data/postgresql:/var/lib/postgresql/data</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">kong-net:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+    <title>(三):Kong插件使用之Prometheus</title>
+    <url>/2020/08/27/kong_3/</url>
+    <content><![CDATA[<h4 id="为Kong添加Prometheus插件"><a href="#为Kong添加Prometheus插件" class="headerlink" title="为Kong添加Prometheus插件"></a>为Kong添加Prometheus插件</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -i -X POST --url http:&#x2F;&#x2F;172.20.99.13:8001&#x2F;plugins --data &quot;name&#x3D;prometheus&quot;</span><br><span class="line"></span><br><span class="line"># 验证数据</span><br><span class="line">curl http:&#x2F;&#x2F;172.20.99.13:8001&#x2F;metrics</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用docker-compose启动"><a href="#使用docker-compose启动" class="headerlink" title="使用docker-compose启动"></a>使用docker-compose启动</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker network create kong-net</span><br><span class="line"></span><br><span class="line">docker-compose up</span><br><span class="line">docker-compose up -d  # 后台启动</span><br></pre></td></tr></table></figure>
+<h4 id="Prothemeus配置"><a href="#Prothemeus配置" class="headerlink" title="Prothemeus配置"></a>Prothemeus配置</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Prometheus配置 172.20.99.13:8001</span><br></pre></td></tr></table></figure>
 
-<h3 id="数据库准备"><a href="#数据库准备" class="headerlink" title="数据库准备"></a>数据库准备</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">     --network=kong-net \</span><br><span class="line">     -e "KONG_DATABASE=postgres" \</span><br><span class="line">     -e "KONG_PG_HOST=kong-database" \</span><br><span class="line">     -e "KONG_PG_USER=kong" \</span><br><span class="line">     -e "KONG_PG_PASSWORD=kong" \</span><br><span class="line">     -e "KONG_CASSANDRA_CONTACT_POINTS=kong-database" \</span><br><span class="line">     kong:2.1.3-centos kong migrations bootstrap</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="访问konga"><a href="#访问konga" class="headerlink" title="访问konga"></a>访问konga</h3><p><a href="http://172.20.99.13:1337/#!/dashboard" target="_blank" rel="noopener">http://172.20.99.13:1337/#!/dashboard</a></p>
-<h3 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h3><ul>
-<li><a href="https://github.com/feixiao/service/tree/master/kong" target="_blank" rel="noopener">kong</a></li>
-</ul>
-]]></content>
+<h4 id="Grafana"><a href="#Grafana" class="headerlink" title="Grafana"></a>Grafana</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">添加模板使用7424即可</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Kong快速入门</category>
       </categories>
@@ -112,22 +197,6 @@
 <li>在消费者(Consumer)上启动插件</li>
 </ul>
 ]]></content>
-      <categories>
-        <category>Kong快速入门</category>
-      </categories>
-      <tags>
-        <tag>微服务</tag>
-        <tag>Kong</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>(三):Kong插件使用之Prometheus</title>
-    <url>/2020/08/27/kong_3/</url>
-    <content><![CDATA[<h4 id="为Kong添加Prometheus插件"><a href="#为Kong添加Prometheus插件" class="headerlink" title="为Kong添加Prometheus插件"></a>为Kong添加Prometheus插件</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -i -X POST --url http:&#x2F;&#x2F;172.20.99.13:8001&#x2F;plugins --data &quot;name&#x3D;prometheus&quot;</span><br><span class="line"></span><br><span class="line"># 验证数据</span><br><span class="line">curl http:&#x2F;&#x2F;172.20.99.13:8001&#x2F;metrics</span><br></pre></td></tr></table></figure>
-
-<h4 id="Prothemeus配置"><a href="#Prothemeus配置" class="headerlink" title="Prothemeus配置"></a>Prothemeus配置</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Prometheus配置 172.20.99.13:8001</span><br></pre></td></tr></table></figure>
-
-<h4 id="Grafana"><a href="#Grafana" class="headerlink" title="Grafana"></a>Grafana</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">添加模板使用7424即可</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Kong快速入门</category>
       </categories>
@@ -241,34 +310,6 @@
       </tags>
   </entry>
   <entry>
-    <title>(一):Juno快速部署</title>
-    <url>/2020/08/31/juno/</url>
-    <content><![CDATA[<h3 id="构建并运行Juno-0-3-0"><a href="#构建并运行Juno-0-3-0" class="headerlink" title="构建并运行Juno 0.3.0"></a>构建并运行Juno 0.3.0</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/douyu/juno-install.git</span><br><span class="line">cd juno-install</span><br><span class="line">docker-compose up --build</span><br></pre></td></tr></table></figure>
-
-<h3 id="初始化并mock数据"><a href="#初始化并mock数据" class="headerlink" title="初始化并mock数据"></a>初始化并mock数据</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it  juno-install_juno-admin_1 docker_juno_init.sh</span><br><span class="line">docker exec -it  juno-install_juno-admin_1 docker_juno_mock.sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="访问管理页面"><a href="#访问管理页面" class="headerlink" title="访问管理页面"></a>访问管理页面</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://172.20.99.13:50002/workspace</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="安装juno-agent"><a href="#安装juno-agent" class="headerlink" title="安装juno-agent"></a>安装juno-agent</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone http:&#x2F;&#x2F;sgithub.com&#x2F;douyu&#x2F;juno-agent.git</span><br><span class="line">cd juno-agent&#x2F;cmd&#x2F;juno-agent &amp;&amp; go build </span><br><span class="line">cp ..&#x2F;..&#x2F;config&#x2F;config.toml config.toml</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 启动</span><br><span class="line">export JUNO_HOST&#x3D;&quot;agent01&quot;</span><br><span class="line">export REGION_CODE&#x3D;&quot;1&quot;</span><br><span class="line">export REGION_NAME&#x3D;&quot;杭州&quot;</span><br><span class="line">export ZONE_CODE&#x3D;&quot;1&quot;</span><br><span class="line">export ZONE_NAME&#x3D;&quot;浙江&quot;</span><br><span class="line">export Env&#x3D;&quot;dev&quot; </span><br><span class="line"></span><br><span class="line">注: plugin.report.addr 填写juno的地址; 同时修改etcd地址为本地</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.&#x2F;juno-agent --config&#x3D;config.toml</span><br></pre></td></tr></table></figure>
-
-<h4 id="停止运行"><a href="#停止运行" class="headerlink" title="停止运行"></a>停止运行</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose down</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
-<li><a href="http://jupiter.douyu.com/juno/1.4install_docker_compose.html" target="_blank" rel="noopener">《juno部署》</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Jupiter快速入门</category>
-      </categories>
-      <tags>
-        <tag>微服务</tag>
-        <tag>jupiter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mediapipe简介</title>
     <url>/2020/07/30/mediapipe/1/</url>
     <content><![CDATA[<h4 id="参加资料"><a href="#参加资料" class="headerlink" title="参加资料"></a>参加资料</h4><ul>
@@ -280,6 +321,30 @@
       </categories>
       <tags>
         <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>(三):Kong插件使用之BasicAuth</title>
+    <url>/2020/08/27/kong_4/</url>
+    <content><![CDATA[<h3 id="为woami服务添加basic-auth"><a href="#为woami服务添加basic-auth" class="headerlink" title="为woami服务添加basic auth"></a>为woami服务添加basic auth</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -X POST http://172.20.99.13:8001/services/whoami/plugins \</span><br><span class="line">    --data "name=basic-auth"  \</span><br><span class="line">    --data "config.hide_credentials=true"</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><ul>
+<li><p>创建消费者</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 必须制定username或custom_id其中一个</span></span><br><span class="line">curl -d "username=frank&amp;custom_id=frank" http://172.20.99.13:8001/consumers/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建凭证</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -X POST http://172.20.99.13:8001/consumers/frank/basic-auth \</span><br><span class="line">    --data "username=frank" \</span><br><span class="line">    --data "password=123456"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证凭证</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> frank:123456 base64以后的结果ZnJhbmslM0ExMjM0NTY=</span></span><br><span class="line">curl -i -X GET \</span><br><span class="line">  --url http://172.20.99.13:8000 \</span><br><span class="line">  --header "Host: whoami.com" \</span><br><span class="line">  --header 'Authorization: Basic ZnJhbmslM0ExMjM0NTY='</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Kong快速入门</category>
+      </categories>
+      <tags>
+        <tag>微服务</tag>
+        <tag>Kong</tag>
       </tags>
   </entry>
 </search>
