@@ -291,6 +291,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/dubbo_1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="Frank">
+      <meta itemprop="description" content="技术分析和交流">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/16/dubbo_1/" class="post-title-link" itemprop="url">dubbo-go使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-16 19:10:00" itemprop="dateCreated datePublished" datetime="2020-09-16T19:10:00+08:00">2020-09-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-17 16:59:11" itemprop="dateModified" datetime="2020-09-17T16:59:11+08:00">2020-09-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dubbo-go/" itemprop="url" rel="index"><span itemprop="name">dubbo-go</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="下载代码"><a href="#下载代码" class="headerlink" title="下载代码"></a>下载代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;dubbo-samples</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行helloworld"><a href="#运行helloworld" class="headerlink" title="运行helloworld"></a>运行helloworld</h4><ul>
+<li>服务端<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-server</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_server-2.6.0-20200917-1433-dev/</span><br></pre></td></tr></table></figure></li>
+<li>客户端<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-client</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_client-2.6.0-20200917-1440-dev</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/" target="_blank" rel="noopener">《dubbo-go官方文档》</a></li>
+<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/docs/user/quick-start.html" target="_blank" rel="noopener">《dubbo-go快速开始》</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/dubbo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -380,92 +466,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/dubbo_1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.jpg">
-      <meta itemprop="name" content="Frank">
-      <meta itemprop="description" content="技术分析和交流">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/16/dubbo_1/" class="post-title-link" itemprop="url">dubbo-go使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-16 19:10:00" itemprop="dateCreated datePublished" datetime="2020-09-16T19:10:00+08:00">2020-09-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-17 16:59:11" itemprop="dateModified" datetime="2020-09-17T16:59:11+08:00">2020-09-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dubbo-go/" itemprop="url" rel="index"><span itemprop="name">dubbo-go</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="下载代码"><a href="#下载代码" class="headerlink" title="下载代码"></a>下载代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;dubbo-samples</span><br></pre></td></tr></table></figure>
-
-<h4 id="运行helloworld"><a href="#运行helloworld" class="headerlink" title="运行helloworld"></a>运行helloworld</h4><ul>
-<li>服务端<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-server</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_server-2.6.0-20200917-1433-dev/</span><br></pre></td></tr></table></figure></li>
-<li>客户端<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-client</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_client-2.6.0-20200917-1440-dev</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
-<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/" target="_blank" rel="noopener">《dubbo-go官方文档》</a></li>
-<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/docs/user/quick-start.html" target="_blank" rel="noopener">《dubbo-go快速开始》</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/31/jupiter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -497,7 +497,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-18 16:00:12" itemprop="dateModified" datetime="2020-09-18T16:00:12+08:00">2020-09-18</time>
+                <time title="修改时间：2020-09-18 16:01:25" itemprop="dateModified" datetime="2020-09-18T16:01:25+08:00">2020-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -523,7 +523,9 @@
           <h3 id="安装脚手架"><a href="#安装脚手架" class="headerlink" title="安装脚手架"></a>安装脚手架</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com&#x2F;douyu&#x2F;jupiter&#x2F;tools&#x2F;jupiter</span><br></pre></td></tr></table></figure>
 
 <h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupiter new apiserver</span><br></pre></td></tr></table></figure>
-
+<ul>
+<li><a href="https://github.com/feixiao/apiserver" target="_blank" rel="noopener">项目地址</a></li>
+</ul>
 <h4 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构:"></a>项目目录结构:</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">build                           编译目录</span><br><span class="line">cmd                             应用启动目录</span><br><span class="line">config                          应用配置目录</span><br><span class="line">internal</span><br><span class="line">├─app                           应用目录</span><br><span class="line">│  ├─engine                     </span><br><span class="line">│  │  ├─engine.<span class="keyword">go</span>               核心编排引擎(启动HTTP,GRPC,JOB等服务)</span><br><span class="line">│  ├─grpc                       grpc服务实现目录</span><br><span class="line">│  ├─handler                    控制器目录（接收用户请求）              </span><br><span class="line">│  │  ├─user.<span class="keyword">go</span>                 控制器文件</span><br><span class="line">│  ├─model                      model目录（定义持久层结构体）</span><br><span class="line">│  │  ├─db</span><br><span class="line">│  │  │  ├─user.<span class="keyword">go</span></span><br><span class="line">│  │  ├─init.<span class="keyword">go</span>                 初始化全局数据库句柄</span><br><span class="line">│  ├─service                    service层</span><br><span class="line">│  │  ├─user                    模块</span><br><span class="line">│  │  │  ├─impl  </span><br><span class="line">│  │  │  │  ├─mysqlImpl.<span class="keyword">go</span>      实现</span><br><span class="line">│  │  │  ├─repository.<span class="keyword">go</span>        service 接口</span><br><span class="line">│  │  ├─init.<span class="keyword">go</span></span><br><span class="line">pb                              proto文件</span><br><span class="line">sql                             sql脚本</span><br><span class="line">.gitignore</span><br><span class="line"><span class="keyword">go</span>.mod</span><br><span class="line">Makefile</span><br></pre></td></tr></table></figure>
 <h3 id="参考代码和文章"><a href="#参考代码和文章" class="headerlink" title="参考代码和文章"></a>参考代码和文章</h3><ul>
 <li><a href="https://github.com/feixiao/apiserver_demos" target="_blank" rel="noopener">apiserver_demos</a>  基于Gin版本APIServer的代码实现。</li>
@@ -877,6 +879,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/27/kong/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="Frank">
+      <meta itemprop="description" content="技术分析和交流">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/27/kong/" class="post-title-link" itemprop="url">(一):Kong快速部署</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-27 15:03:29" itemprop="dateCreated datePublished" datetime="2020-08-27T15:03:29+08:00">2020-08-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-31 13:57:38" itemprop="dateModified" datetime="2020-08-31T13:57:38+08:00">2020-08-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kong%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">Kong快速入门</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="编写yaml文件"><a href="#编写yaml文件" class="headerlink" title="编写yaml文件"></a>编写yaml文件</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.7"</span></span><br><span class="line"><span class="attr">services:</span> </span><br><span class="line">  <span class="attr">kong:</span></span><br><span class="line">    <span class="comment"># 镜像版本，目前最新</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">kong:2.1.3-centos</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="comment"># 数据持久化方式，使用postgres数据库</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_DATABASE=postgres"</span></span><br><span class="line">    <span class="comment"># 数据库容器名称,Kong连接数据时使用些名称</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PG_HOST=kong-database"</span></span><br><span class="line">    <span class="comment"># 数据库名称</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_CASSANDRA_CONTACT_POINTS=kong-database"</span></span><br><span class="line">    <span class="comment"># 日志记录目录</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PROXY_ACCESS_LOG=/dev/stdout"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_ACCESS_LOG=/dev/stdout"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PROXY_ERROR_LOG=/dev/stderr"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_ERROR_LOG=/dev/stderr"</span></span><br><span class="line">    <span class="comment"># 暴露的端口</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl"</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8000</span><span class="string">:8000</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8443</span><span class="string">:8443</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8001</span><span class="string">:8001</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8444</span><span class="string">:8444</span></span><br><span class="line">    <span class="comment"># 使用docker网络</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="comment"># 依赖数据库服务</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-database</span></span><br><span class="line"><span class="comment"># kong 管理界面</span></span><br><span class="line">  <span class="attr">konga:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">pantsel/konga</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"TOKEN_SECRET=localhost"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"NODE_ENV=production"</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">1337</span><span class="string">:1337</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-database</span></span><br><span class="line"><span class="comment"># 数据库服务</span></span><br><span class="line">  <span class="attr">kong-database:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:9.6</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"5432:5432"</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="comment"># 访问数据库的用户</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_HOST_AUTH_METHOD=trust</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">    <span class="comment"># 同步时间</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/etc/localtime:/etc/localtime:ro</span></span><br><span class="line">    <span class="comment"># 数据库持久化目录</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/data/data/postgresql:/var/lib/postgresql/data</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">kong-net:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用docker-compose启动"><a href="#使用docker-compose启动" class="headerlink" title="使用docker-compose启动"></a>使用docker-compose启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker network create kong-net</span><br><span class="line"></span><br><span class="line">docker-compose up</span><br><span class="line">docker-compose up -d  # 后台启动</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库准备"><a href="#数据库准备" class="headerlink" title="数据库准备"></a>数据库准备</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">     --network=kong-net \</span><br><span class="line">     -e "KONG_DATABASE=postgres" \</span><br><span class="line">     -e "KONG_PG_HOST=kong-database" \</span><br><span class="line">     -e "KONG_PG_USER=kong" \</span><br><span class="line">     -e "KONG_PG_PASSWORD=kong" \</span><br><span class="line">     -e "KONG_CASSANDRA_CONTACT_POINTS=kong-database" \</span><br><span class="line">     kong:2.1.3-centos kong migrations bootstrap</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="访问konga"><a href="#访问konga" class="headerlink" title="访问konga"></a>访问konga</h3><p><a href="http://172.20.99.13:1337/#!/dashboard" target="_blank" rel="noopener">http://172.20.99.13:1337/#!/dashboard</a></p>
+<h3 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h3><ul>
+<li><a href="https://github.com/feixiao/service/tree/master/kong" target="_blank" rel="noopener">kong</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/27/kong_1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -993,91 +1080,6 @@
 <h3 id="添加Route"><a href="#添加Route" class="headerlink" title="添加Route"></a>添加Route</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> services后面的path路径为服务名，即我们上面设置的whoami</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> hosts的设置指定为到该host的请求会被转发到whoami服务</span></span><br><span class="line">curl -i -X POST \</span><br><span class="line">--url http://172.20.99.13:8001/services/whoami/routes \</span><br><span class="line">--data 'hosts[]=whoami.com'</span><br></pre></td></tr></table></figure>
 
 <h3 id="请求Kong，验证服务转发正确"><a href="#请求Kong，验证服务转发正确" class="headerlink" title="请求Kong，验证服务转发正确"></a>请求Kong，验证服务转发正确</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 需要设置Host: whoami.com 才能转发到whoami服务</span><br><span class="line">curl -i -X GET \</span><br><span class="line">--url http:&#x2F;&#x2F;172.20.99.13:8000&#x2F; \</span><br><span class="line">--header &#39;Host: whoami.com&#39;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/27/kong/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.jpg">
-      <meta itemprop="name" content="Frank">
-      <meta itemprop="description" content="技术分析和交流">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/27/kong/" class="post-title-link" itemprop="url">(一):Kong快速部署</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-27 15:03:29" itemprop="dateCreated datePublished" datetime="2020-08-27T15:03:29+08:00">2020-08-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-31 13:57:38" itemprop="dateModified" datetime="2020-08-31T13:57:38+08:00">2020-08-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kong%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">Kong快速入门</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="编写yaml文件"><a href="#编写yaml文件" class="headerlink" title="编写yaml文件"></a>编写yaml文件</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.7"</span></span><br><span class="line"><span class="attr">services:</span> </span><br><span class="line">  <span class="attr">kong:</span></span><br><span class="line">    <span class="comment"># 镜像版本，目前最新</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">kong:2.1.3-centos</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="comment"># 数据持久化方式，使用postgres数据库</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_DATABASE=postgres"</span></span><br><span class="line">    <span class="comment"># 数据库容器名称,Kong连接数据时使用些名称</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PG_HOST=kong-database"</span></span><br><span class="line">    <span class="comment"># 数据库名称</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_CASSANDRA_CONTACT_POINTS=kong-database"</span></span><br><span class="line">    <span class="comment"># 日志记录目录</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PROXY_ACCESS_LOG=/dev/stdout"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_ACCESS_LOG=/dev/stdout"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PROXY_ERROR_LOG=/dev/stderr"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_ERROR_LOG=/dev/stderr"</span></span><br><span class="line">    <span class="comment"># 暴露的端口</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl"</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8000</span><span class="string">:8000</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8443</span><span class="string">:8443</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8001</span><span class="string">:8001</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8444</span><span class="string">:8444</span></span><br><span class="line">    <span class="comment"># 使用docker网络</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="comment"># 依赖数据库服务</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-database</span></span><br><span class="line"><span class="comment"># kong 管理界面</span></span><br><span class="line">  <span class="attr">konga:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">pantsel/konga</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"TOKEN_SECRET=localhost"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"NODE_ENV=production"</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">1337</span><span class="string">:1337</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-database</span></span><br><span class="line"><span class="comment"># 数据库服务</span></span><br><span class="line">  <span class="attr">kong-database:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:9.6</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"5432:5432"</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="comment"># 访问数据库的用户</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_HOST_AUTH_METHOD=trust</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">    <span class="comment"># 同步时间</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/etc/localtime:/etc/localtime:ro</span></span><br><span class="line">    <span class="comment"># 数据库持久化目录</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/data/data/postgresql:/var/lib/postgresql/data</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">kong-net:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="使用docker-compose启动"><a href="#使用docker-compose启动" class="headerlink" title="使用docker-compose启动"></a>使用docker-compose启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker network create kong-net</span><br><span class="line"></span><br><span class="line">docker-compose up</span><br><span class="line">docker-compose up -d  # 后台启动</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据库准备"><a href="#数据库准备" class="headerlink" title="数据库准备"></a>数据库准备</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">     --network=kong-net \</span><br><span class="line">     -e "KONG_DATABASE=postgres" \</span><br><span class="line">     -e "KONG_PG_HOST=kong-database" \</span><br><span class="line">     -e "KONG_PG_USER=kong" \</span><br><span class="line">     -e "KONG_PG_PASSWORD=kong" \</span><br><span class="line">     -e "KONG_CASSANDRA_CONTACT_POINTS=kong-database" \</span><br><span class="line">     kong:2.1.3-centos kong migrations bootstrap</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="访问konga"><a href="#访问konga" class="headerlink" title="访问konga"></a>访问konga</h3><p><a href="http://172.20.99.13:1337/#!/dashboard" target="_blank" rel="noopener">http://172.20.99.13:1337/#!/dashboard</a></p>
-<h3 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h3><ul>
-<li><a href="https://github.com/feixiao/service/tree/master/kong" target="_blank" rel="noopener">kong</a></li>
-</ul>
-
       
     </div>
 
