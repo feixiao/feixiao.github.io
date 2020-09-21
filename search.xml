@@ -29,26 +29,23 @@
       </tags>
   </entry>
   <entry>
-    <title>dubbo-go使用</title>
-    <url>/2020/09/16/dubbo_1/</url>
-    <content><![CDATA[<h4 id="下载代码"><a href="#下载代码" class="headerlink" title="下载代码"></a>下载代码</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;dubbo-samples</span><br></pre></td></tr></table></figure>
-
-<h4 id="运行helloworld"><a href="#运行helloworld" class="headerlink" title="运行helloworld"></a>运行helloworld</h4><ul>
-<li><p>服务端</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-server</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 脚本作用：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   1：设置环境变量 TARGET_EXEC_NAME、TARGET_EXEC_NAME、TARGET_CONF_FILE、TARGET_LOG_CONF_FILE</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   2：编译</span></span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_server-2.6.0-20200917-1433-dev/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>客户端</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-client</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_client-2.6.0-20200917-1440-dev</span><br></pre></td></tr></table></figure>
-
+    <title>dubbo安装部署</title>
+    <url>/2020/09/16/dubbo/</url>
+    <content><![CDATA[<h2 id="Dubbo-快速入门"><a href="#Dubbo-快速入门" class="headerlink" title="Dubbo 快速入门"></a>Dubbo 快速入门</h2><p>Apache Dubbo™ 是一款高性能Java RPC框架。支持的客户端有Java、Node.js、Python、PHP、Go和Erlang。<a href="http://dubbo.apache.org/zh-cn/community/index.html" target="_blank" rel="noopener">生态系统</a></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
+<li>准备docker-compose.yaml文件, <a href="https://github.com/feixiao/service/tree/master/dubbo" target="_blank" rel="noopener">文件更新地址</a><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">zookeeper:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">zookeeper</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">2181</span><span class="string">:2181</span></span><br><span class="line">  <span class="attr">admin:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">chenchuxin/dubbo-admin</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">zookeeper</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8080</span><span class="string">:8080</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.registry.address=zookeeper://zookeeper:2181</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.admin.root.password=root</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.admin.guest.password=guest</span></span><br></pre></td></tr></table></figure></li>
+<li>启动和关闭<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose up -d </span><br><span class="line">docker-compose download</span><br></pre></td></tr></table></figure></li>
+<li>浏览器访问<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://172.20.99.13:8080/</span><br><span class="line">用户名密码root:root</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
-<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/" target="_blank" rel="noopener">《dubbo-go官方文档》</a></li>
-<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/docs/user/quick-start.html" target="_blank" rel="noopener">《dubbo-go快速开始》</a></li>
+<li><a href="http://dubbo.apache.org/zh-cn/" target="_blank" rel="noopener">《Dubbo官网地址》</a></li>
+<li><a href="http://dubbo.apache.org/zh-cn/docs/user/quick-start.html" target="_blank" rel="noopener">《quick-start》</a></li>
 </ul>
 ]]></content>
       <categories>
+        <category>dubbo</category>
         <category>dubbo-go</category>
       </categories>
       <tags>
@@ -81,51 +78,56 @@
       </tags>
   </entry>
   <entry>
-    <title>(三):Kong插件使用之限流</title>
-    <url>/2020/08/27/kong_2/</url>
-    <content><![CDATA[<p>注：对Kong的操作可以使用KongA完成。我们这边使用命令方式完成。</p>
-<ul>
-<li>部署参考 <a href="https://feixiao.github.io/2020/08/27/kong/" target="_blank" rel="noopener">《kong快速部署》</a></li>
-</ul>
-<h3 id="测试whoami服务"><a href="#测试whoami服务" class="headerlink" title="测试whoami服务"></a>测试whoami服务</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 12线程、40连接、持续30秒操作</span></span><br><span class="line">wrk -t12 -c400 -d30s http://172.20.99.13:8000 -H "Host: whoami.com"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试结果</span></span><br><span class="line">Running 30s test @ http://172.20.99.13:8000</span><br><span class="line">  12 threads and 400 connections</span><br><span class="line">  Thread Stats   Avg      Stdev     Max   +/- Stdev</span><br><span class="line">    Latency    97.10ms  159.90ms   1.62s    89.50%</span><br><span class="line">    Req/Sec   693.90    372.81     1.39k    56.53%</span><br><span class="line">  247571 requests in 30.09s, 54.04MB read</span><br><span class="line">Requests/sec:   8227.49</span><br><span class="line">Transfer/sec:      1.80MB</span><br></pre></td></tr></table></figure>
+    <title>dubbo-go使用</title>
+    <url>/2020/09/16/dubbo_1/</url>
+    <content><![CDATA[<h4 id="下载代码"><a href="#下载代码" class="headerlink" title="下载代码"></a>下载代码</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;dubbo-samples</span><br></pre></td></tr></table></figure>
 
-<h3 id="启动插件"><a href="#启动插件" class="headerlink" title="启动插件"></a>启动插件</h3><ul>
-<li>在服务(Service)上启用插件<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -X POST http://172.20.99.13:8001/services/whoami/plugins \</span><br><span class="line">   --data "name=rate-limiting"  \</span><br><span class="line">   --data "config.second=500" \</span><br><span class="line">   --data "config.hour=10000"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证效果</span></span><br><span class="line">wrk -t12 -c400 -d30s http://172.20.99.13:8000 -H "Host: whoami.com"</span><br><span class="line"><span class="meta">#</span><span class="bash">测试结果</span></span><br><span class="line">Running 30s test @ http://172.20.99.13:8000</span><br><span class="line">  12 threads and 400 connections</span><br><span class="line">  Thread Stats   Avg      Stdev     Max   +/- Stdev</span><br><span class="line">    Latency   461.99ms  482.43ms   1.99s    82.31%</span><br><span class="line">    Req/Sec    47.66     31.52   300.00     79.57%</span><br><span class="line">  16962 requests in 30.10s, 4.63MB read</span><br><span class="line">  Socket errors: connect 0, read 0, write 0, timeout 1219</span><br><span class="line">Requests/sec:    563.47</span><br><span class="line">Transfer/sec:    157.58K</span><br></pre></td></tr></table></figure></li>
-<li>在路由(Route)上启动插件</li>
-<li>在消费者(Consumer)上启动插件</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Kong快速入门</category>
-      </categories>
-      <tags>
-        <tag>微服务</tag>
-        <tag>Kong</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>dubbo安装部署</title>
-    <url>/2020/09/16/dubbo/</url>
-    <content><![CDATA[<h2 id="Dubbo-快速入门"><a href="#Dubbo-快速入门" class="headerlink" title="Dubbo 快速入门"></a>Dubbo 快速入门</h2><p>Apache Dubbo™ 是一款高性能Java RPC框架。支持的客户端有Java、Node.js、Python、PHP、Go和Erlang。<a href="http://dubbo.apache.org/zh-cn/community/index.html" target="_blank" rel="noopener">生态系统</a></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
-<li>准备docker-compose.yaml文件, <a href="https://github.com/feixiao/service/tree/master/dubbo" target="_blank" rel="noopener">文件更新地址</a><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">zookeeper:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">zookeeper</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">2181</span><span class="string">:2181</span></span><br><span class="line">  <span class="attr">admin:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">chenchuxin/dubbo-admin</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">zookeeper</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8080</span><span class="string">:8080</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.registry.address=zookeeper://zookeeper:2181</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.admin.root.password=root</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.admin.guest.password=guest</span></span><br></pre></td></tr></table></figure></li>
-<li>启动和关闭<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose up -d </span><br><span class="line">docker-compose download</span><br></pre></td></tr></table></figure></li>
-<li>浏览器访问<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://172.20.99.13:8080/</span><br><span class="line">用户名密码root:root</span><br></pre></td></tr></table></figure>
+<h4 id="运行helloworld"><a href="#运行helloworld" class="headerlink" title="运行helloworld"></a>运行helloworld</h4><ul>
+<li><p>服务端</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-server</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 脚本作用：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   1：设置环境变量 TARGET_EXEC_NAME、TARGET_EXEC_NAME、TARGET_CONF_FILE、TARGET_LOG_CONF_FILE</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   2：编译</span></span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_server-2.6.0-20200917-1433-dev/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>客户端</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-client</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_client-2.6.0-20200917-1440-dev</span><br></pre></td></tr></table></figure>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 设置环境变量</span><br><span class="line">cd dubbo-samples&#x2F;golang</span><br><span class="line">export APP_LOG_CONF_FILE&#x3D;&#96;pwd&#96;&#x2F;helloworld&#x2F;dubbo&#x2F;go-client&#x2F;profiles&#x2F;dev&#x2F;log.yml</span><br><span class="line">export CONF_CONSUMER_FILE_PATH&#x3D;&#96;pwd&#96;&#x2F;helloworld&#x2F;dubbo&#x2F;go-client&#x2F;profiles&#x2F;dev&#x2F;client.yml</span><br><span class="line">export CONF_PROVIDER_FILE_PATH&#x3D;&#96;pwd&#96;&#x2F;helloworld&#x2F;dubbo&#x2F;go-server&#x2F;profiles&#x2F;dev&#x2F;server.yml</span><br><span class="line">cd helloworld&#x2F;go-server &amp;&amp; go build </span><br><span class="line">.&#x2F;app</span><br><span class="line"></span><br><span class="line">cd helloworld&#x2F;go-client &amp;&amp; go build</span><br><span class="line">.&#x2F;app</span><br></pre></td></tr></table></figure>
+
+
 
 </li>
 </ul>
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
-<li><a href="http://dubbo.apache.org/zh-cn/" target="_blank" rel="noopener">《Dubbo官网地址》</a></li>
-<li><a href="http://dubbo.apache.org/zh-cn/docs/user/quick-start.html" target="_blank" rel="noopener">《quick-start》</a></li>
+<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/" target="_blank" rel="noopener">《dubbo-go官方文档》</a></li>
+<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/docs/user/quick-start.html" target="_blank" rel="noopener">《dubbo-go快速开始》</a></li>
 </ul>
 ]]></content>
       <categories>
-        <category>dubbo</category>
         <category>dubbo-go</category>
       </categories>
       <tags>
         <tag>微服务</tag>
         <tag>dubbo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>(二):Jupiter快速入门</title>
+    <url>/2020/08/31/jupiter/</url>
+    <content><![CDATA[<h3 id="安装脚手架"><a href="#安装脚手架" class="headerlink" title="安装脚手架"></a>安装脚手架</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">go get -u github.com&#x2F;douyu&#x2F;jupiter&#x2F;tools&#x2F;jupiter</span><br></pre></td></tr></table></figure>
+
+<h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jupiter new apiserver</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/feixiao/apiserver" target="_blank" rel="noopener">项目地址</a></li>
+</ul>
+<h4 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构:"></a>项目目录结构:</h4><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">build                           编译目录</span><br><span class="line">cmd                             应用启动目录</span><br><span class="line">config                          应用配置目录</span><br><span class="line">internal</span><br><span class="line">├─app                           应用目录</span><br><span class="line">│  ├─engine                     </span><br><span class="line">│  │  ├─engine.<span class="keyword">go</span>               核心编排引擎(启动HTTP,GRPC,JOB等服务)</span><br><span class="line">│  ├─grpc                       grpc服务实现目录</span><br><span class="line">│  ├─handler                    控制器目录（接收用户请求）              </span><br><span class="line">│  │  ├─user.<span class="keyword">go</span>                 控制器文件</span><br><span class="line">│  ├─model                      model目录（定义持久层结构体）</span><br><span class="line">│  │  ├─db</span><br><span class="line">│  │  │  ├─user.<span class="keyword">go</span></span><br><span class="line">│  │  ├─init.<span class="keyword">go</span>                 初始化全局数据库句柄</span><br><span class="line">│  ├─service                    service层</span><br><span class="line">│  │  ├─user                    模块</span><br><span class="line">│  │  │  ├─impl  </span><br><span class="line">│  │  │  │  ├─mysqlImpl.<span class="keyword">go</span>      实现</span><br><span class="line">│  │  │  ├─repository.<span class="keyword">go</span>        service 接口</span><br><span class="line">│  │  ├─init.<span class="keyword">go</span></span><br><span class="line">pb                              proto文件</span><br><span class="line">sql                             sql脚本</span><br><span class="line">.gitignore</span><br><span class="line"><span class="keyword">go</span>.mod</span><br><span class="line">Makefile</span><br></pre></td></tr></table></figure>
+<h3 id="参考代码和文章"><a href="#参考代码和文章" class="headerlink" title="参考代码和文章"></a>参考代码和文章</h3><ul>
+<li><a href="https://github.com/feixiao/apiserver_demos" target="_blank" rel="noopener">apiserver_demos</a>  基于Gin版本APIServer的代码实现。</li>
+<li><a href="https://cloud.tencent.com/developer/article/1427578" target="_blank" rel="noopener">《Go API 开发实战》</a> 基于Gin版本APIServer, 含有详细实现过程。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Jupiter快速入门</category>
+      </categories>
+      <tags>
+        <tag>微服务</tag>
+        <tag>jupiter</tag>
       </tags>
   </entry>
   <entry>
@@ -202,6 +204,29 @@
       </tags>
   </entry>
   <entry>
+    <title>(三):Kong插件使用之限流</title>
+    <url>/2020/08/27/kong_2/</url>
+    <content><![CDATA[<p>注：对Kong的操作可以使用KongA完成。我们这边使用命令方式完成。</p>
+<ul>
+<li>部署参考 <a href="https://feixiao.github.io/2020/08/27/kong/" target="_blank" rel="noopener">《kong快速部署》</a></li>
+</ul>
+<h3 id="测试whoami服务"><a href="#测试whoami服务" class="headerlink" title="测试whoami服务"></a>测试whoami服务</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 12线程、40连接、持续30秒操作</span></span><br><span class="line">wrk -t12 -c400 -d30s http://172.20.99.13:8000 -H "Host: whoami.com"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试结果</span></span><br><span class="line">Running 30s test @ http://172.20.99.13:8000</span><br><span class="line">  12 threads and 400 connections</span><br><span class="line">  Thread Stats   Avg      Stdev     Max   +/- Stdev</span><br><span class="line">    Latency    97.10ms  159.90ms   1.62s    89.50%</span><br><span class="line">    Req/Sec   693.90    372.81     1.39k    56.53%</span><br><span class="line">  247571 requests in 30.09s, 54.04MB read</span><br><span class="line">Requests/sec:   8227.49</span><br><span class="line">Transfer/sec:      1.80MB</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动插件"><a href="#启动插件" class="headerlink" title="启动插件"></a>启动插件</h3><ul>
+<li>在服务(Service)上启用插件<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -X POST http://172.20.99.13:8001/services/whoami/plugins \</span><br><span class="line">   --data "name=rate-limiting"  \</span><br><span class="line">   --data "config.second=500" \</span><br><span class="line">   --data "config.hour=10000"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证效果</span></span><br><span class="line">wrk -t12 -c400 -d30s http://172.20.99.13:8000 -H "Host: whoami.com"</span><br><span class="line"><span class="meta">#</span><span class="bash">测试结果</span></span><br><span class="line">Running 30s test @ http://172.20.99.13:8000</span><br><span class="line">  12 threads and 400 connections</span><br><span class="line">  Thread Stats   Avg      Stdev     Max   +/- Stdev</span><br><span class="line">    Latency   461.99ms  482.43ms   1.99s    82.31%</span><br><span class="line">    Req/Sec    47.66     31.52   300.00     79.57%</span><br><span class="line">  16962 requests in 30.10s, 4.63MB read</span><br><span class="line">  Socket errors: connect 0, read 0, write 0, timeout 1219</span><br><span class="line">Requests/sec:    563.47</span><br><span class="line">Transfer/sec:    157.58K</span><br></pre></td></tr></table></figure></li>
+<li>在路由(Route)上启动插件</li>
+<li>在消费者(Consumer)上启动插件</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Kong快速入门</category>
+      </categories>
+      <tags>
+        <tag>微服务</tag>
+        <tag>Kong</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>(三):Kong插件使用之Prometheus</title>
     <url>/2020/08/27/kong_3/</url>
     <content><![CDATA[<h4 id="为Kong添加Prometheus插件"><a href="#为Kong添加Prometheus插件" class="headerlink" title="为Kong添加Prometheus插件"></a>为Kong添加Prometheus插件</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -i -X POST --url http:&#x2F;&#x2F;172.20.99.13:8001&#x2F;plugins --data &quot;name&#x3D;prometheus&quot;</span><br><span class="line"></span><br><span class="line"># 验证数据</span><br><span class="line">curl http:&#x2F;&#x2F;172.20.99.13:8001&#x2F;metrics</span><br></pre></td></tr></table></figure>
@@ -215,29 +240,6 @@
       <tags>
         <tag>微服务</tag>
         <tag>Kong</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>(二):Jupiter快速入门</title>
-    <url>/2020/08/31/jupiter/</url>
-    <content><![CDATA[<h3 id="安装脚手架"><a href="#安装脚手架" class="headerlink" title="安装脚手架"></a>安装脚手架</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">go get -u github.com&#x2F;douyu&#x2F;jupiter&#x2F;tools&#x2F;jupiter</span><br></pre></td></tr></table></figure>
-
-<h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jupiter new apiserver</span><br></pre></td></tr></table></figure>
-<ul>
-<li><a href="https://github.com/feixiao/apiserver" target="_blank" rel="noopener">项目地址</a></li>
-</ul>
-<h4 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构:"></a>项目目录结构:</h4><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">build                           编译目录</span><br><span class="line">cmd                             应用启动目录</span><br><span class="line">config                          应用配置目录</span><br><span class="line">internal</span><br><span class="line">├─app                           应用目录</span><br><span class="line">│  ├─engine                     </span><br><span class="line">│  │  ├─engine.<span class="keyword">go</span>               核心编排引擎(启动HTTP,GRPC,JOB等服务)</span><br><span class="line">│  ├─grpc                       grpc服务实现目录</span><br><span class="line">│  ├─handler                    控制器目录（接收用户请求）              </span><br><span class="line">│  │  ├─user.<span class="keyword">go</span>                 控制器文件</span><br><span class="line">│  ├─model                      model目录（定义持久层结构体）</span><br><span class="line">│  │  ├─db</span><br><span class="line">│  │  │  ├─user.<span class="keyword">go</span></span><br><span class="line">│  │  ├─init.<span class="keyword">go</span>                 初始化全局数据库句柄</span><br><span class="line">│  ├─service                    service层</span><br><span class="line">│  │  ├─user                    模块</span><br><span class="line">│  │  │  ├─impl  </span><br><span class="line">│  │  │  │  ├─mysqlImpl.<span class="keyword">go</span>      实现</span><br><span class="line">│  │  │  ├─repository.<span class="keyword">go</span>        service 接口</span><br><span class="line">│  │  ├─init.<span class="keyword">go</span></span><br><span class="line">pb                              proto文件</span><br><span class="line">sql                             sql脚本</span><br><span class="line">.gitignore</span><br><span class="line"><span class="keyword">go</span>.mod</span><br><span class="line">Makefile</span><br></pre></td></tr></table></figure>
-<h3 id="参考代码和文章"><a href="#参考代码和文章" class="headerlink" title="参考代码和文章"></a>参考代码和文章</h3><ul>
-<li><a href="https://github.com/feixiao/apiserver_demos" target="_blank" rel="noopener">apiserver_demos</a>  基于Gin版本APIServer的代码实现。</li>
-<li><a href="https://cloud.tencent.com/developer/article/1427578" target="_blank" rel="noopener">《Go API 开发实战》</a> 基于Gin版本APIServer, 含有详细实现过程。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Jupiter快速入门</category>
-      </categories>
-      <tags>
-        <tag>微服务</tag>
-        <tag>jupiter</tag>
       </tags>
   </entry>
   <entry>
@@ -367,6 +369,11 @@
         <tag>微服务</tag>
         <tag>Tars</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/2020/07/29/tags/index/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>mediapipe简介</title>

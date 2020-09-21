@@ -28,7 +28,7 @@
 <meta property="og:description" content="下载代码1git clone https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;dubbo-samples  运行helloworld 服务端 12345678910export ARCH&#x3D;mac &amp;&amp; export ENV&#x3D;devcd helloworld&#x2F;dubbo&#x2F;go-server# 脚本作用：#   1：设置环境变量 TARGET">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-16T11:10:00.000Z">
-<meta property="article:modified_time" content="2020-09-21T01:42:35.670Z">
+<meta property="article:modified_time" content="2020-09-21T02:20:40.035Z">
 <meta property="article:author" content="Frank">
 <meta property="article:tag" content="微服务">
 <meta property="article:tag" content="dubbo">
@@ -214,7 +214,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载代码"><span class="nav-number">1.</span> <span class="nav-text">下载代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行helloworld"><span class="nav-number">2.</span> <span class="nav-text">运行helloworld</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载代码"><span class="nav-number">1.</span> <span class="nav-text">下载代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行helloworld"><span class="nav-number">2.</span> <span class="nav-text">运行helloworld</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二"><span class="nav-number">3.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -230,7 +230,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -241,10 +241,8 @@
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
         <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -326,7 +324,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-21 09:42:35" itemprop="dateModified" datetime="2020-09-21T09:42:35+08:00">2020-09-21</time>
+                <time title="修改时间：2020-09-21 10:20:40" itemprop="dateModified" datetime="2020-09-21T10:20:40+08:00">2020-09-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -364,6 +362,8 @@
 </li>
 <li><p>客户端</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-client</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_client-2.6.0-20200917-1440-dev</span><br></pre></td></tr></table></figure>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 设置环境变量</span><br><span class="line">cd dubbo-samples&#x2F;golang</span><br><span class="line">export APP_LOG_CONF_FILE&#x3D;&#96;pwd&#96;&#x2F;helloworld&#x2F;dubbo&#x2F;go-client&#x2F;profiles&#x2F;dev&#x2F;log.yml</span><br><span class="line">export CONF_CONSUMER_FILE_PATH&#x3D;&#96;pwd&#96;&#x2F;helloworld&#x2F;dubbo&#x2F;go-client&#x2F;profiles&#x2F;dev&#x2F;client.yml</span><br><span class="line">export CONF_PROVIDER_FILE_PATH&#x3D;&#96;pwd&#96;&#x2F;helloworld&#x2F;dubbo&#x2F;go-server&#x2F;profiles&#x2F;dev&#x2F;server.yml</span><br><span class="line">cd helloworld&#x2F;go-server &amp;&amp; go build </span><br><span class="line">.&#x2F;app</span><br><span class="line"></span><br><span class="line">cd helloworld&#x2F;go-client &amp;&amp; go build</span><br><span class="line">.&#x2F;app</span><br></pre></td></tr></table></figure>
+
 
 
 </li>
@@ -428,10 +428,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/09/16/dubbo/" rel="prev" title="dubbo安装部署">
-      <i class="fa fa-chevron-left"></i> dubbo安装部署
+    <a href="/2020/08/31/jupiter/" rel="prev" title="(二):Jupiter快速入门">
+      <i class="fa fa-chevron-left"></i> (二):Jupiter快速入门
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/16/dubbo/" rel="next" title="dubbo安装部署">
+      dubbo安装部署 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
