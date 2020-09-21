@@ -322,7 +322,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-17 16:59:11" itemprop="dateModified" datetime="2020-09-17T16:59:11+08:00">2020-09-17</time>
+                <time title="修改时间：2020-09-21 09:42:35" itemprop="dateModified" datetime="2020-09-21T09:42:35+08:00">2020-09-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -348,8 +348,11 @@
           <h4 id="下载代码"><a href="#下载代码" class="headerlink" title="下载代码"></a>下载代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;dubbo-samples</span><br></pre></td></tr></table></figure>
 
 <h4 id="运行helloworld"><a href="#运行helloworld" class="headerlink" title="运行helloworld"></a>运行helloworld</h4><ul>
-<li>服务端<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-server</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_server-2.6.0-20200917-1433-dev/</span><br></pre></td></tr></table></figure></li>
-<li>客户端<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-client</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_client-2.6.0-20200917-1440-dev</span><br></pre></td></tr></table></figure>
+<li><p>服务端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-server</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 脚本作用：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   1：设置环境变量 TARGET_EXEC_NAME、TARGET_EXEC_NAME、TARGET_CONF_FILE、TARGET_LOG_CONF_FILE</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   2：编译</span></span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_server-2.6.0-20200917-1433-dev/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>客户端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export ARCH=mac &amp;&amp; export ENV=dev</span><br><span class="line">cd helloworld/dubbo/go-client</span><br><span class="line">sh ./assembly/$ARCH/$ENV.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我配置的是mac和dev</span></span><br><span class="line">cd ./target/darwin/user_info_client-2.6.0-20200917-1440-dev</span><br></pre></td></tr></table></figure>
 
 
 </li>
