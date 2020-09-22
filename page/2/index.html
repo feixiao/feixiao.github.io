@@ -226,15 +226,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
         <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
         <span class="site-state-item-count">6</span>
@@ -289,6 +287,216 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/27/kong_1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="Frank">
+      <meta itemprop="description" content="技术分析和交流">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/27/kong_1/" class="post-title-link" itemprop="url">(二):Kong快速入门</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-27 15:03:29" itemprop="dateCreated datePublished" datetime="2020-08-27T15:03:29+08:00">2020-08-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-31 13:57:38" itemprop="dateModified" datetime="2020-08-31T13:57:38+08:00">2020-08-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kong%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">Kong快速入门</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>注：对Kong的操作可以使用KongA完成。我们这边使用命令方式完成。</p>
+<ul>
+<li>部署参考 <a href="https://feixiao.github.io/2020/08/27/kong/" target="_blank" rel="noopener">《kong快速部署》</a></li>
+</ul>
+<h3 id="准备Service"><a href="#准备Service" class="headerlink" title="准备Service"></a>准备Service</h3><ul>
+<li>我们这边准备whoami服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 18000:8000 --name whoami -t jwilder&#x2F;whoami</span><br></pre></td></tr></table></figure></li>
+<li>验证服务正常工作<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl http://172.20.99.13:18000</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 正确的输出结果</span></span><br><span class="line">➜  github  curl http://172.20.99.13:18000</span><br><span class="line">I'm b845814d0a45</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="添加Service到Kong"><a href="#添加Service到Kong" class="headerlink" title="添加Service到Kong"></a>添加Service到Kong</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name [可选]</td>
+<td>服务名称.</td>
+</tr>
+<tr>
+<td>protocol  [可选]</td>
+<td>该协议用于与upstream通信。它可以是http（默认）或https。</td>
+</tr>
+<tr>
+<td>host</td>
+<td>upstream服务器的主机。</td>
+</tr>
+<tr>
+<td>port</td>
+<td>upstream服务器端口。默认为80</td>
+</tr>
+<tr>
+<td>path [可选]</td>
+<td>在向upstream服务器请求中使用的路径。默认为空。</td>
+</tr>
+<tr>
+<td>retries [可选]</td>
+<td>在代理失败的情况下执行的重试次数。默认值是5。</td>
+</tr>
+<tr>
+<td>connect_timeout [可选]</td>
+<td>建立到upstream服务器的连接的超时时间。默认为60000。</td>
+</tr>
+<tr>
+<td>write_timeout [可选]</td>
+<td>将请求发送到upstream服务器的两个连续写操作之间的超时时间。默认为60000。</td>
+</tr>
+<tr>
+<td>read_timeout [可选]</td>
+<td>将请求发送到upstream服务器的两个连续读取操作之间的超时时间。默认为60000。</td>
+</tr>
+<tr>
+<td>url（简写属性）</td>
+<td>将协议、主机、端口和路径立即设置成简短的属性。这个属性是只写的（管理API从来不“返回”url）。</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -i -X POST \</span><br><span class="line">--url http://172.20.99.13:8001/services/ \</span><br><span class="line">--data 'name=whoami' \</span><br><span class="line">--data 'host=172.20.99.13' \</span><br><span class="line">--data 'port=18000'</span><br></pre></td></tr></table></figure>
+<h3 id="添加Route"><a href="#添加Route" class="headerlink" title="添加Route"></a>添加Route</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> services后面的path路径为服务名，即我们上面设置的whoami</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> hosts的设置指定为到该host的请求会被转发到whoami服务</span></span><br><span class="line">curl -i -X POST \</span><br><span class="line">--url http://172.20.99.13:8001/services/whoami/routes \</span><br><span class="line">--data 'hosts[]=whoami.com'</span><br></pre></td></tr></table></figure>
+
+<h3 id="请求Kong，验证服务转发正确"><a href="#请求Kong，验证服务转发正确" class="headerlink" title="请求Kong，验证服务转发正确"></a>请求Kong，验证服务转发正确</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 需要设置Host: whoami.com 才能转发到whoami服务</span><br><span class="line">curl -i -X GET \</span><br><span class="line">--url http:&#x2F;&#x2F;172.20.99.13:8000&#x2F; \</span><br><span class="line">--header &#39;Host: whoami.com&#39;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/30/mediapipe/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="Frank">
+      <meta itemprop="description" content="技术分析和交流">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/30/mediapipe/1/" class="post-title-link" itemprop="url">mediapipe简介</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-30 10:56:57" itemprop="dateCreated datePublished" datetime="2020-07-30T10:56:57+08:00">2020-07-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-31 13:57:38" itemprop="dateModified" datetime="2020-08-31T13:57:38+08:00">2020-08-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MediaPipe/" itemprop="url" rel="index"><span itemprop="name">MediaPipe</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="参加资料"><a href="#参加资料" class="headerlink" title="参加资料"></a>参加资料</h4><ul>
+<li><a href="https://baijiahao.baidu.com/s?id=1652634745458571414&wfr=spider&for=pc" target="_blank" rel="noopener">《谷歌详细介绍MediaPipe对象检测与追踪系统》</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/29/tags/index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -314,6 +522,70 @@
               <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2020-07-29 11:00:37" itemprop="dateCreated datePublished" datetime="2020-07-29T11:00:37+08:00">2020-07-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-31 13:57:38" itemprop="dateModified" datetime="2020-08-31T13:57:38+08:00">2020-08-31</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/29/categories/index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="Frank">
+      <meta itemprop="description" content="技术分析和交流">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/29/categories/index/" class="post-title-link" itemprop="url">categories</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-29 10:59:42" itemprop="dateCreated datePublished" datetime="2020-07-29T10:59:42+08:00">2020-07-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">

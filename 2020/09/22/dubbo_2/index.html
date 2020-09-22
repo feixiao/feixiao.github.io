@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Dubbo 快速入门Apache Dubbo™ 是一款高性能Java RPC框架。支持的客户端有Java、Node.js、Python、PHP、Go和Erlang。生态系统 安装 准备docker-compose.yaml文件, 文件更新地址12345678910111213141516version: &#39;3&#39;services:  zookeeper:    image: zookeeper">
+  <meta name="description" content="Dubbo支持RESTFul需要解决的问题REST 协议核心要解决一个问题：Go 方法到 HTTP 接口的双向映射。  普通 HTTP 调用 dubbo-go 服务，考虑的是 HTTP 到 Go 方法的映射 dubbo-go 服务调用 HTTP 服务，则是 Go 方法到 HTTP 接口的映射。  如何映射映射内容 路径映射 Header 处理（固定 Header 和 Header 值也是参数两种情">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(一):dubbo安装部署">
-<meta property="og:url" content="http://yoursite.com/2020/09/16/dubbo/index.html">
+<meta property="og:title" content="(3):dubbo-go使用REST协议">
+<meta property="og:url" content="http://yoursite.com/2020/09/22/dubbo_2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Dubbo 快速入门Apache Dubbo™ 是一款高性能Java RPC框架。支持的客户端有Java、Node.js、Python、PHP、Go和Erlang。生态系统 安装 准备docker-compose.yaml文件, 文件更新地址12345678910111213141516version: &#39;3&#39;services:  zookeeper:    image: zookeeper">
+<meta property="og:description" content="Dubbo支持RESTFul需要解决的问题REST 协议核心要解决一个问题：Go 方法到 HTTP 接口的双向映射。  普通 HTTP 调用 dubbo-go 服务，考虑的是 HTTP 到 Go 方法的映射 dubbo-go 服务调用 HTTP 服务，则是 Go 方法到 HTTP 接口的映射。  如何映射映射内容 路径映射 Header 处理（固定 Header 和 Header 值也是参数两种情">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-16T11:10:00.000Z">
-<meta property="article:modified_time" content="2020-09-22T00:10:00.122Z">
+<meta property="article:published_time" content="2020-09-22T00:10:00.000Z">
+<meta property="article:modified_time" content="2020-09-22T00:28:09.939Z">
 <meta property="article:author" content="Frank">
 <meta property="article:tag" content="微服务">
 <meta property="article:tag" content="dubbo">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/09/16/dubbo/">
+<link rel="canonical" href="http://yoursite.com/2020/09/22/dubbo_2/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>(一):dubbo安装部署 | Hexo</title>
+  <title>(3):dubbo-go使用REST协议 | Hexo</title>
   
 
 
@@ -214,7 +214,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dubbo-快速入门"><span class="nav-number">1.</span> <span class="nav-text">Dubbo 快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.0.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">1.0.2.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dubbo支持RESTFul需要解决的问题"><span class="nav-number">1.</span> <span class="nav-text">Dubbo支持RESTFul需要解决的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何映射"><span class="nav-number">2.</span> <span class="nav-text">如何映射</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#映射内容"><span class="nav-number">2.1.</span> <span class="nav-text">映射内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#映射规则"><span class="nav-number">2.2.</span> <span class="nav-text">映射规则</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -292,7 +292,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/dubbo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/22/dubbo_2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/1.jpg">
@@ -305,7 +305,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          (一):dubbo安装部署
+          (3):dubbo-go使用REST协议
         </h1>
 
         <div class="post-meta">
@@ -314,27 +314,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-09-16 19:10:00" itemprop="dateCreated datePublished" datetime="2020-09-16T19:10:00+08:00">2020-09-16</time>
+              <time title="创建时间：2020-09-22 08:10:00 / 修改时间：08:28:09" itemprop="dateCreated datePublished" datetime="2020-09-22T08:10:00+08:00">2020-09-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-22 08:10:00" itemprop="dateModified" datetime="2020-09-22T08:10:00+08:00">2020-09-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dubbo/" itemprop="url" rel="index"><span itemprop="name">dubbo</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dubbo/dubbo-go/" itemprop="url" rel="index"><span itemprop="name">dubbo-go</span></a>
+                  <a href="/categories/dubbo-go/" itemprop="url" rel="index"><span itemprop="name">dubbo-go</span></a>
                 </span>
             </span>
 
@@ -356,17 +346,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Dubbo-快速入门"><a href="#Dubbo-快速入门" class="headerlink" title="Dubbo 快速入门"></a>Dubbo 快速入门</h2><p>Apache Dubbo™ 是一款高性能Java RPC框架。支持的客户端有Java、Node.js、Python、PHP、Go和Erlang。<a href="http://dubbo.apache.org/zh-cn/community/index.html" target="_blank" rel="noopener">生态系统</a></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
-<li>准备docker-compose.yaml文件, <a href="https://github.com/feixiao/service/tree/master/dubbo" target="_blank" rel="noopener">文件更新地址</a><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">zookeeper:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">zookeeper</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">2181</span><span class="string">:2181</span></span><br><span class="line">  <span class="attr">admin:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">chenchuxin/dubbo-admin</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">zookeeper</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8080</span><span class="string">:8080</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.registry.address=zookeeper://zookeeper:2181</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.admin.root.password=root</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">dubbo.admin.guest.password=guest</span></span><br></pre></td></tr></table></figure></li>
-<li>启动和关闭<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d </span><br><span class="line">docker-compose download</span><br></pre></td></tr></table></figure></li>
-<li>浏览器访问<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://172.20.99.13:8080/</span><br><span class="line">用户名密码root:root</span><br></pre></td></tr></table></figure>
-
+        <h4 id="Dubbo支持RESTFul需要解决的问题"><a href="#Dubbo支持RESTFul需要解决的问题" class="headerlink" title="Dubbo支持RESTFul需要解决的问题"></a>Dubbo支持RESTFul需要解决的问题</h4><p>REST 协议核心要解决一个问题：<strong>Go 方法到 HTTP 接口的双向映射。</strong></p>
+<ul>
+<li>普通 HTTP 调用 dubbo-go 服务，考虑的是 <strong>HTTP 到 Go 方法的映射</strong></li>
+<li>dubbo-go 服务调用 HTTP 服务，则是 <strong>Go 方法到 HTTP 接口的映射</strong>。</li>
+</ul>
+<h4 id="如何映射"><a href="#如何映射" class="headerlink" title="如何映射"></a>如何映射</h4><h5 id="映射内容"><a href="#映射内容" class="headerlink" title="映射内容"></a>映射内容</h5><ul>
+<li>路径映射</li>
+<li>Header 处理（固定 Header 和 Header 值也是参数两种情况）</li>
+<li>POST or GET or …（HTTP 方法映射）</li>
+<li>参数映射</li>
+</ul>
+<h5 id="映射规则"><a href="#映射规则" class="headerlink" title="映射规则"></a>映射规则</h5><ul>
+<li><p>接口</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> UserProvider <span class="keyword">struct</span> &#123;</span><br><span class="line">    GetUser <span class="function"><span class="keyword">func</span><span class="params">(id <span class="keyword">string</span>, name <span class="keyword">string</span>, age <span class="keyword">int</span>)</span> <span class="params">(*User, error)</span></span></span><br><span class="line">&#125;</span><br><span class="line"># 发布形式  http:<span class="comment">//127.0.0.1/UserProvider/GetUser/&#123;id&#125;?name=test&amp;age=1</span></span><br></pre></td></tr></table></figure></li>
+<li><p>映射配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">"UserProvider":</span></span><br><span class="line">    <span class="string">//注册中心</span></span><br><span class="line">    <span class="attr">registry:</span> <span class="string">"zookeeper"</span></span><br><span class="line">    <span class="string">//启用REST协议</span></span><br><span class="line">    <span class="attr">protocol :</span> <span class="string">"rest"</span></span><br><span class="line">    <span class="string">//DUBBO的接口名</span></span><br><span class="line">    <span class="attr">interface :</span> <span class="string">"com.ikurento.user.UserProvider"</span></span><br><span class="line">    <span class="string">//</span> <span class="string">服务接口路径</span></span><br><span class="line">    <span class="attr">rest_path:</span> <span class="string">"/UserProvider"</span></span><br><span class="line">    <span class="attr">methods:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">"GetUser"</span></span><br><span class="line">      <span class="string">//</span> <span class="string">方法接口路径</span></span><br><span class="line">      <span class="attr">rest_path:</span> <span class="string">"/GetUser/&#123;id&#125;"</span></span><br><span class="line">      <span class="string">//</span> <span class="string">HTTP方法</span></span><br><span class="line">      <span class="attr">rest_method:</span> <span class="string">"GET"</span></span><br><span class="line">      <span class="string">//</span> <span class="string">HTTP查询参数</span></span><br><span class="line">      <span class="attr">rest_query_params:</span> <span class="string">"1:name,2:age"</span></span><br><span class="line">      <span class="string">//</span> <span class="string">HTTP路径参数</span></span><br><span class="line">      <span class="attr">rest_path_params:</span> <span class="string">"0:id"</span></span><br><span class="line">      <span class="string">//</span> <span class="string">可以提供的内容类型</span></span><br><span class="line">      <span class="attr">rest_produces:</span> <span class="string">"application/json;application/xml"</span></span><br><span class="line">      <span class="string">//</span> <span class="string">可以接受的客户端参数类型</span></span><br><span class="line">      <span class="attr">rest_consumes:</span> <span class="string">"application/json;charset=utf-8,*/*"</span></span><br><span class="line">      <span class="string">//</span> <span class="string">HTTP</span> <span class="string">Body</span></span><br><span class="line">      <span class="attr">rest_body:</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a href="https://github.com/dubbogo/dubbo-samples/tree/master/golang/general/rest/go-server/profiles/dev/server.yml" target="_blank" rel="noopener">《dubbo到rest的映射规则》</a></p>
+</li>
+<li><p>没有现成网关吗？类似grpc-gateway</p>
 </li>
 </ul>
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
-<li><a href="http://dubbo.apache.org/zh-cn/" target="_blank" rel="noopener">《Dubbo官网地址》</a></li>
-<li><a href="http://dubbo.apache.org/zh-cn/docs/user/quick-start.html" target="_blank" rel="noopener">《quick-start》</a></li>
+<li><a href="https://gocn.vip/topics/10400" target="_blank" rel="noopener">《dubbo-go REST 协议实现》</a></li>
+<li><a href="https://dubbogo.github.io/dubbo-go-website/zh-cn/" target="_blank" rel="noopener">《dubbo-go官方文档》</a></li>
 </ul>
 
     </div>
@@ -403,7 +406,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/09/16/dubbo/" title="(一):dubbo安装部署">http://yoursite.com/2020/09/16/dubbo/</a>
+    <a href="http://yoursite.com/2020/09/22/dubbo_2/" title="(3):dubbo-go使用REST协议">http://yoursite.com/2020/09/22/dubbo_2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -424,13 +427,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/09/16/dubbo_1/" rel="prev" title="(二):dubbo-go使用快速入门">
-      <i class="fa fa-chevron-left"></i> (二):dubbo-go使用快速入门
+    <a href="/2020/09/21/nacos/" rel="prev" title="nacos">
+      <i class="fa fa-chevron-left"></i> nacos
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/09/21/nacos/" rel="next" title="nacos">
-      nacos <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
