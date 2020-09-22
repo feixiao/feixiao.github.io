@@ -241,24 +241,6 @@
       </tags>
   </entry>
   <entry>
-    <title>nacos</title>
-    <url>/2020/09/21/nacos/</url>
-    <content><![CDATA[<p>title: (一):Nacos部署<br>date: 2020-09-21 14:03:26<br>tags: </p>
-<ul>
-<li>微服务</li>
-<li>Nacos<br>categories: </li>
-<li>Nacos快速入门</li>
-</ul>
-<h4 id="使用Docker运行"><a href="#使用Docker运行" class="headerlink" title="使用Docker运行"></a>使用Docker运行</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/nacos-group/nacos-docker.git</span><br><span class="line">cd nacos-docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 单机模式</span></span><br><span class="line">docker-compose -f example/standalone-derby.yaml up</span><br></pre></td></tr></table></figure>
-<h4 id="控制台"><a href="#控制台" class="headerlink" title="控制台"></a>控制台</h4><ul>
-<li><a href="http://127.0.0.1:8848/nacos/" target="_blank" rel="noopener">http://127.0.0.1:8848/nacos/</a></li>
-</ul>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
-<li><a href="https://nacos.io/zh-cn/docs/what-is-nacos.html" target="_blank" rel="noopener">《Nacos 文档》</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>(三):Kong插件使用之限流</title>
     <url>/2020/08/27/kong_2/</url>
     <content><![CDATA[<p>注：对Kong的操作可以使用KongA完成。我们这边使用命令方式完成。</p>
@@ -320,6 +302,24 @@
         <tag>微服务</tag>
         <tag>Kong</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>nacos</title>
+    <url>/2020/09/21/nacos/</url>
+    <content><![CDATA[<p>title: (一):Nacos部署<br>date: 2020-09-21 14:03:26<br>tags: </p>
+<ul>
+<li>微服务</li>
+<li>Nacos<br>categories: </li>
+<li>Nacos快速入门</li>
+</ul>
+<h4 id="使用Docker运行"><a href="#使用Docker运行" class="headerlink" title="使用Docker运行"></a>使用Docker运行</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/nacos-group/nacos-docker.git</span><br><span class="line">cd nacos-docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 单机模式</span></span><br><span class="line">docker-compose -f example/standalone-derby.yaml up</span><br></pre></td></tr></table></figure>
+<h4 id="控制台"><a href="#控制台" class="headerlink" title="控制台"></a>控制台</h4><ul>
+<li><a href="http://127.0.0.1:8848/nacos/" target="_blank" rel="noopener">http://127.0.0.1:8848/nacos/</a></li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://nacos.io/zh-cn/docs/what-is-nacos.html" target="_blank" rel="noopener">《Nacos 文档》</a></li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>Tars简介</title>
@@ -431,11 +431,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/2020/07/29/tags/index/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>mediapipe简介</title>
     <url>/2020/07/30/mediapipe/1/</url>
     <content><![CDATA[<h4 id="参加资料"><a href="#参加资料" class="headerlink" title="参加资料"></a>参加资料</h4><ul>
@@ -448,5 +443,10 @@
       <tags>
         <tag>AI</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/2020/07/29/tags/index/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
