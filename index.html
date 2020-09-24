@@ -226,20 +226,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -287,6 +287,77 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/24/mediasoup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="Frank">
+      <meta itemprop="description" content="技术分析和交流">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/24/mediasoup/" class="post-title-link" itemprop="url">(一):MediaSoup-Demo编译和运行</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-24 08:43:00 / 修改时间：09:19:24" itemprop="dateCreated datePublished" datetime="2020-09-24T08:43:00+08:00">2020-09-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MediaSoup%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">MediaSoup快速入门</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/versatica/mediasoup-demo</span><br><span class="line">cd mediasoup-demo</span><br><span class="line">git checkout v3</span><br><span class="line">cd server </span><br><span class="line">sudo npm install -g cnpm --registry=https://registry.npm.taobao.org </span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
+<h4 id="运行app"><a href="#运行app" class="headerlink" title="运行app"></a>运行app</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ../app</span><br><span class="line">cnpm install</span><br><span class="line"></span><br><span class="line">sudo cnpm install -g gulp-cli</span><br></pre></td></tr></table></figure>
+<h4 id="运行server"><a href="#运行server" class="headerlink" title="运行server"></a>运行server</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cp config.example.js config.js</span><br><span class="line"></span><br><span class="line">cd ../app</span><br><span class="line">cnpm install </span><br><span class="line"></span><br><span class="line">cd ../server</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">准备证书</span></span><br><span class="line">局域网自签证书参考 https://github.com/feixiao/https</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改config.js 配置htts证书路径</span></span><br><span class="line"></span><br><span class="line">cnpm start</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1033,91 +1104,6 @@
 <li>在服务(Service)上启用插件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST http://172.20.99.13:8001/services/whoami/plugins \</span><br><span class="line">   --data "name=rate-limiting"  \</span><br><span class="line">   --data "config.second=500" \</span><br><span class="line">   --data "config.hour=10000"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证效果</span></span><br><span class="line">wrk -t12 -c400 -d30s http://172.20.99.13:8000 -H "Host: whoami.com"</span><br><span class="line"><span class="meta">#</span><span class="bash">测试结果</span></span><br><span class="line">Running 30s test @ http://172.20.99.13:8000</span><br><span class="line">  12 threads and 400 connections</span><br><span class="line">  Thread Stats   Avg      Stdev     Max   +/- Stdev</span><br><span class="line">    Latency   461.99ms  482.43ms   1.99s    82.31%</span><br><span class="line">    Req/Sec    47.66     31.52   300.00     79.57%</span><br><span class="line">  16962 requests in 30.10s, 4.63MB read</span><br><span class="line">  Socket errors: connect 0, read 0, write 0, timeout 1219</span><br><span class="line">Requests/sec:    563.47</span><br><span class="line">Transfer/sec:    157.58K</span><br></pre></td></tr></table></figure></li>
 <li>在路由(Route)上启动插件</li>
 <li>在消费者(Consumer)上启动插件</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/27/kong/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.jpg">
-      <meta itemprop="name" content="Frank">
-      <meta itemprop="description" content="技术分析和交流">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/27/kong/" class="post-title-link" itemprop="url">(一):Kong快速部署</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-27 15:03:29" itemprop="dateCreated datePublished" datetime="2020-08-27T15:03:29+08:00">2020-08-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-31 13:57:38" itemprop="dateModified" datetime="2020-08-31T13:57:38+08:00">2020-08-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kong%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">Kong快速入门</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="编写yaml文件"><a href="#编写yaml文件" class="headerlink" title="编写yaml文件"></a>编写yaml文件</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.7"</span></span><br><span class="line"><span class="attr">services:</span> </span><br><span class="line">  <span class="attr">kong:</span></span><br><span class="line">    <span class="comment"># 镜像版本，目前最新</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">kong:2.1.3-centos</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="comment"># 数据持久化方式，使用postgres数据库</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_DATABASE=postgres"</span></span><br><span class="line">    <span class="comment"># 数据库容器名称,Kong连接数据时使用些名称</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PG_HOST=kong-database"</span></span><br><span class="line">    <span class="comment"># 数据库名称</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_CASSANDRA_CONTACT_POINTS=kong-database"</span></span><br><span class="line">    <span class="comment"># 日志记录目录</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PROXY_ACCESS_LOG=/dev/stdout"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_ACCESS_LOG=/dev/stdout"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_PROXY_ERROR_LOG=/dev/stderr"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_ERROR_LOG=/dev/stderr"</span></span><br><span class="line">    <span class="comment"># 暴露的端口</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl"</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8000</span><span class="string">:8000</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8443</span><span class="string">:8443</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8001</span><span class="string">:8001</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">8444</span><span class="string">:8444</span></span><br><span class="line">    <span class="comment"># 使用docker网络</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="comment"># 依赖数据库服务</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-database</span></span><br><span class="line"><span class="comment"># kong 管理界面</span></span><br><span class="line">  <span class="attr">konga:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">pantsel/konga</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"TOKEN_SECRET=localhost"</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">"NODE_ENV=production"</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="number">1337</span><span class="string">:1337</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-database</span></span><br><span class="line"><span class="comment"># 数据库服务</span></span><br><span class="line">  <span class="attr">kong-database:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:9.6</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"5432:5432"</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="comment"># 访问数据库的用户</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=kong</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_HOST_AUTH_METHOD=trust</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">kong-net</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">    <span class="comment"># 同步时间</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/etc/localtime:/etc/localtime:ro</span></span><br><span class="line">    <span class="comment"># 数据库持久化目录</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/data/data/postgresql:/var/lib/postgresql/data</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">kong-net:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="使用docker-compose启动"><a href="#使用docker-compose启动" class="headerlink" title="使用docker-compose启动"></a>使用docker-compose启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker network create kong-net</span><br><span class="line"></span><br><span class="line">docker-compose up</span><br><span class="line">docker-compose up -d  # 后台启动</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据库准备"><a href="#数据库准备" class="headerlink" title="数据库准备"></a>数据库准备</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">     --network=kong-net \</span><br><span class="line">     -e "KONG_DATABASE=postgres" \</span><br><span class="line">     -e "KONG_PG_HOST=kong-database" \</span><br><span class="line">     -e "KONG_PG_USER=kong" \</span><br><span class="line">     -e "KONG_PG_PASSWORD=kong" \</span><br><span class="line">     -e "KONG_CASSANDRA_CONTACT_POINTS=kong-database" \</span><br><span class="line">     kong:2.1.3-centos kong migrations bootstrap</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="访问konga"><a href="#访问konga" class="headerlink" title="访问konga"></a>访问konga</h3><p><a href="http://172.20.99.13:1337/#!/dashboard" target="_blank" rel="noopener">http://172.20.99.13:1337/#!/dashboard</a></p>
-<h3 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h3><ul>
-<li><a href="https://github.com/feixiao/service/tree/master/kong" target="_blank" rel="noopener">kong</a></li>
 </ul>
 
       
